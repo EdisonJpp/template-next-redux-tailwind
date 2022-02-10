@@ -6,9 +6,12 @@ import { useState } from "react";
 export default function Home() {
   const [pokemonName, setPokemonName] = useState("bulbasaur");
 
-  const { isLoading, data } = useGetPokemonByNameQuery(pokemonName.toLocaleLowerCase(), {
-    refetchOnMountOrArgChange: true,
-  });
+  const { isLoading, data } = useGetPokemonByNameQuery(
+    pokemonName.toLocaleLowerCase(),
+    {
+      refetchOnMountOrArgChange: true,
+    }
+  );
 
   if (isLoading) return <div>Loading... </div>;
   return (
@@ -25,7 +28,7 @@ export default function Home() {
         onChange={({ target }) => target.value && setPokemonName(target.value)}
       />
 
-      <p className="text-center text-2xl text-blue-400">{data.name}</p>
+      <p className="text-center text-2xl text-primary-500">{data.name}</p>
       <p className="text-center text-xl text-blue-400">abilities</p>
       {(data.abilities || []).map((ability) => (
         <p className="text-center text-base text-blue-400" key={ability.slot}>

@@ -1,6 +1,6 @@
 const Example = () => {
   return (
-    <div>
+    <div className="text-primary">
       Example Example Example Example Example Example Example Example Example
       Example Example Example Example Example
     </div>
